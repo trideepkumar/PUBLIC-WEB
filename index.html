@@ -328,16 +328,20 @@ BROWSE ALL SECTORS
                                   <div class="col-lg-3">
                                     <h3 class="py-5">NEWS LETTER</h3>
                                     <p>You can contact us through here...</p>
-                                    <form>
-                                    <input type="email" placeholder="Enter Your Email" name="" id="email">
-                                   <input type="submit" class="btn5" onsubmit="sendEmail(); reset(); " >
+                                    <form onsubmit="validate()">
+                                    <input type="text" placeholder="Enter Your Email"  id="email">
+                                   <input type="submit" class="btn5"  >
                                   </form>
                                   </div>
         </div>
 
 <hr>
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()" style="background:  #121626; border: none; color: #69696b;"> 
+Here is your time.</button>
+<p id="demo"></p>
 
-<p class="py-4">copyright @2022 ALLright reserved | <span class="red">jobfinder </span>india.</p>
+<p class="py-4">copyright @2022 ALLright reserved  | <span class="red" >jobfinder </span>india.</p>
 
 
 
@@ -349,22 +353,30 @@ BROWSE ALL SECTORS
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+
+
     <script>
-      function sendEmail(){
+      function validation(){
 
-        Email.send({
-    Host : "smtp.gmail.com",
-    Username : "trideepkuma111@gmail.com",
-    Password : "trideep@123",
-    To : 'trideepkumar535@gmail.com',
-    From : document.getElementById("email").value,
-   
-    Body : "And this is the body"+ document.getElementById("email").value
-}).then(
-  message => alert("message sent suucessfully")
-);
+var Email         = document.querySelector("#email").value;
+
+var error_message =document.getElementById("error_message");
+var text;
+
+error_message.style.padding ="10px";
+
+if(fname.length < 4){
+  text = "please enter a valid email";
+  err.textContent = text ;
+       err.style.height = '4rem';
+       return false;
+}else{
+
+}
+return true;
+
       }
-
     </script>
 
   </body>
